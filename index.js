@@ -532,7 +532,7 @@ console.log(contract.defaultBlock)
  await setTimeout(15000);
 
   console.log(receipt)
-  return receipt
+  return await receipt
 
 }
  app.get('/mintnft/:address/:nft', async (req, res) => {
