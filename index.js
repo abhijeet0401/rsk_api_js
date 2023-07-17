@@ -6,6 +6,7 @@ const app = express();
 const PORT = 8080
 
 // let contract
+var api_call = 0 
 async function getKit(addrssofmint, nft) {
 const web3 = new Web3("https://public-node.testnet.rsk.co")
 console.log(web3.eth.getNodeInfo())
@@ -508,7 +509,8 @@ const json =[
 ]
 let contract = new web3.eth.Contract(json, MPContractAddress);
 console.log(contract.defaultBlock)
-
+api_call = api_call+1
+console.log(api_call)
   
   const map = new Map()
   map.set('art','https://ipfs.io/ipfs/QmQ6pkp4xcdbdabp5XCeJYuQBV5cnQnTf7CVpf34rpHUDN')
