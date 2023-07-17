@@ -1,12 +1,11 @@
 import express from 'express'
 import Web3 from 'web3'
-
+import { setTimeout } from "timers/promises";
 const MPContractAddress = "0x95185Db5aDec7974309C1e73062EC7Cace678f27"
 const app = express();
 const PORT = 8080
 
 // let contract
-var api_call = 0 
 async function getKit(addrssofmint, nft) {
 const web3 = new Web3("https://public-node.testnet.rsk.co")
 console.log(web3.eth.getNodeInfo())
@@ -509,8 +508,7 @@ const json =[
 ]
 let contract = new web3.eth.Contract(json, MPContractAddress);
 console.log(contract.defaultBlock)
-api_call = api_call+1
-console.log(api_call)
+
   
   const map = new Map()
   map.set('art','https://ipfs.io/ipfs/QmQ6pkp4xcdbdabp5XCeJYuQBV5cnQnTf7CVpf34rpHUDN')
@@ -531,7 +529,7 @@ console.log(api_call)
    from: '0x22c39D2FE93C3067C108448E814c19AcD5326589',
    gas: await txObject.estimateGas(),
  })
-
+ await setTimeout(15000);
 
   console.log(receipt)
   return receipt
